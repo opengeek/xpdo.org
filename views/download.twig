@@ -1,0 +1,21 @@
+{% extends 'base.twig' %}
+
+{% set title = 'Download xPDO ' ~ release.signature %}
+{% set description = 'Download the ' ~ release.signature ~ ' release of xPDO' %}
+
+{% block header %}
+    <!-- Header -->
+    <header id="head">
+        <div class="container">
+            <div class="row">
+                <h1 class="lead">{{ title }}</h1>
+                <p class="tagline">{{ description }}</p>
+                <p><a class="btn btn-action btn-lg" role="button" href="{{ urlFor('DownloadRelease', {"release":release.signature}) }}">DOWNLOAD {{ release.signature }}</a></p>
+            </div>
+        </div>
+    </header>
+    <!-- /Header -->
+{% endblock %}
+
+{% block content %}
+{% endblock %}

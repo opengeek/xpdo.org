@@ -1,0 +1,23 @@
+{% extends 'base.twig' %}
+
+{% set title = 'xPDO News' %}
+{% set description = 'News and Announcements for the xPDO Community' %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="maincontent text-center">
+            <h2>{{ description }}</h2>
+            <p>Below you will find news and public announcements for the xPDO Community.</p>
+
+            {% for article in articles %}
+            <article class="maincontent text-left">
+                <h3>{{ article.title }}</h3>
+                {{ article.summary }}
+                <p class="pull-right"><a href="{{ urlFor('NewsArticle', {"year":article.year,"month":article.month,"article":article.slug}) }}" class="btn btn-success btn-sm">Read more</a></p>
+            </article>
+            {% endfor %}
+        </div>
+    </div>
+</div>	<!-- /container -->
+{% endblock %}

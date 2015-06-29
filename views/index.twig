@@ -1,0 +1,116 @@
+{% extends 'base.twig' %}
+
+{% set title = 'xPDO' %}
+{% set subtitle = 'Object Relational Bridge Framework for PHP' %}
+{% set description = 'xPDO is an Object Relational Bridge Framework for PHP' %}
+{% set bodyClass = 'home' %}
+
+{% block header %}
+<!-- Header -->
+<header id="head">
+    <div class="container">
+        <div class="row">
+            <h1 class="lead">{{ title }}</h1>
+            <p class="tagline">{{ subtitle }}</p>
+            <p><a class="btn btn-default btn-lg" role="button">MORE INFO</a> <a class="btn btn-action btn-lg" role="button" href="{{ urlFor('Downloads') }}">DOWNLOAD NOW</a></p>
+        </div>
+    </div>
+</header>
+<!-- /Header -->
+{% endblock %}
+
+{% block content %}
+    <!-- Intro -->
+    <div class="container text-center">
+        <br> <br>
+        <h2 class="thin">xPDO takes care of the CRUD so you don't have to</h2>
+        <p class="text-muted">
+            An ultra-light Active Record persistence library<br>built directly on PDO
+        </p>
+    </div>
+    <!-- /Intro-->
+
+    <!-- Highlights - jumbotron -->
+    <div class="jumbotron top-space">
+        <div class="container">
+
+            <h3 class="text-center thin">Why xPDO ?</h3>
+
+            <div class="row">
+                <div class="col-md-3 col-sm-6 highlight">
+                    <div class="h-caption"><h4><i class="fa fa-cogs fa-5"></i>Platform-Optimized Active Record</h4></div>
+                    <div class="h-body text-center">
+                        <p><a href="http://www.martinfowler.com/eaaCatalog/activeRecord.html">Active Record</a> is a popular persistence pattern with O/R mapping tools. xPDO implements this pattern and takes it further by providing facilities to optimize per platform&mdash;capabilities associated with more complex <a href="http://martinfowler.com/eaaCatalog/dataMapper.html">DataMapper</a> persistence libraries.</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 highlight">
+                    <div class="h-caption"><h4><i class="fa fa-flash fa-5"></i>The Minimalism of a Microframework</h4></div>
+                    <div class="h-body text-center">
+                        <p>xPDO was built many years ago as an ultra-lightweight alternative to <a href="http://propelorm.org/">Propel</a>. This architectural mindset continues to drive development of xPDO and makes it ideally suited for use with microframeworks such as <a href="http://www.slimframework.com/">Slim</a>.</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 highlight">
+                    <div class="h-caption"><h4><i class="fa fa-heart fa-5"></i>All the Benefits of Open Source Software</h4></div>
+                    <div class="h-body text-center">
+                        <p>xPDO is Open Source software and you can use xPDO to develop Open Source or commercial software with, knowing that your investment is not locked into the successes and failures of a commercial software vendor.</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 highlight">
+                    <div class="h-caption"><h4><i class="fa fa-smile-o fa-5"></i>Powering MODX Revolution since 2007</h4></div>
+                    <div class="h-body text-center">
+                        <p>xPDO has served as the foundation for the <a href="http://modx.com/get-modx/">MODX Revolution</a> Content Management System since its inception. Developed in 2007, the power and stability of the library has been proven in production time and time again.</p>
+                    </div>
+                </div>
+            </div> <!-- /row  -->
+
+        </div>
+    </div>
+    <!-- /Highlights -->
+
+    <!-- container -->
+    <div class="container">
+
+        {#<h2 class="text-center top-space">xPDO is Easy to Use</h2>#}
+        {#<br>#}
+
+        {#<div class="row">#}
+            {#<div class="col-sm-6">#}
+                {#<h3>Which code editor would you recommend?</h3>#}
+                {#<p>I'd highly recommend <a href="https://www.jetbrains.com/phpstorm/">PhpStorm</a> by JetBrains - try it free for 30 days and you won't regret it.</p>#}
+            {#</div>#}
+            {#<div class="col-sm-6">#}
+                {#<h3>Nice header. Where do I find more images like that one?</h3>#}
+                {#<p>#}
+                    {#Well, there are thousands of stock art galleries, but personally,#}
+                    {#I prefer to use photos from these sites: <a href="http://unsplash.com">Unsplash.com</a>#}
+                    {#and <a href="http://www.flickr.com/creativecommons/by-2.0/tags/">Flickr - Creative Commons</a></p>#}
+            {#</div>#}
+        {#</div> <!-- /row -->#}
+
+        {#<div class="row">#}
+            {#<div class="col-sm-6">#}
+                {#<h3>Can I use it to build a site for my client?</h3>#}
+                {#<p>#}
+                    {#Yes, you can. You may use this template for any purpose, just don't forget about the <a href="http://creativecommons.org/licenses/by/3.0/">license</a>,#}
+                    {#which says: "You must give appropriate credit", i.e. you must provide the name of the creator and a link to the original template in your work.#}
+                {#</p>#}
+            {#</div>#}
+            {#<div class="col-sm-6">#}
+                {#<h3>Can you customize this template for me?</h3>#}
+                {#<p>Yes, I can. Please drop me a line to sergey-at-pozhilov.com and describe your needs in details. Please note, my services are not cheap.</p>#}
+            {#</div>#}
+        {#</div> <!-- /row -->#}
+
+        <div class="jumbotron top-space">
+            <blockquote>This time, deadline be damned, I cranked up xPDO on my data model and got to work.<br>
+                The deadline was this morning, and I delivered on time! (That in itself is a little unusual for me, let alone forcing a paradigm shift on my coding.)</blockquote>
+            <p class="text-right">&mdash;Mike Schell<br><small>MODX Cloud Lead @ <a href="http://modx.com/">MODX, LLC</a></small></p>
+
+            <blockquote>xPDO is fully-featured, easy-to-use, and like everything Jason does, well thought out. It exposes and normalizes database interactions for those who would otherwise struggle with them. Personally, I'd be lost without it.</blockquote>
+            <p class="text-right">&mdash;YJ Tso<br><small>Client Whisperer @ <a href="http://modx.com/">MODX, LLC</a></small></p>
+
+            <p class="text-right"><a class="btn btn-primary btn-large">Learn more »</a></p>
+        </div>
+
+    </div>	<!-- /container -->
+{% endblock %}

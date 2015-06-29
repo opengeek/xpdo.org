@@ -1,0 +1,8 @@
+# ignore composer vendor dir
+/vendor/
+
+# ignore twig cache contents
+/views/cache/*
+
+# ignore data contents
+/data/*

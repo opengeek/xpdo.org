@@ -1,0 +1,28 @@
+{% extends 'base.twig' %}
+
+{% set title = errorMessage|default('Server Error') %}
+{% set description = errorDescription|default('An Unknown Error Occurred') %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <article class="maincontent">
+            <div class="panel-danger">
+                <h1>{{ title }}</h1>
+                <p>{{ description }}</p>
+                {% if errors %}
+                    <ul>
+                        {% for field in errors %}
+                            {% for fieldErrors in field %}
+                                {% for error in fieldErrors %}
+                                    <li>{{ error.message }}</li>
+                                {% endfor %}
+                            {% endfor %}
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            </div>
+        </article>
+    </div>
+</div>
+{% endblock %}

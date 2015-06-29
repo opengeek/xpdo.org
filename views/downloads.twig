@@ -1,0 +1,35 @@
+{% extends 'base.twig' %}
+
+{% set title = 'xPDO Downloads' %}
+{% set description = 'Download Releases of xPDO' %}
+
+{% block header %}
+    <!-- Header -->
+    <header id="head">
+        <div class="container">
+            <div class="row">
+                <h1 class="lead">{{ title }}</h1>
+                <p class="tagline">{{ subtitle }}</p>
+                <p><a class="btn btn-action btn-lg" role="button" href="{{ urlFor('DownloadRelease', {"release":releases|first.signature}) }}">DOWNLOAD LATEST</a></p>
+            </div>
+        </div>
+    </header>
+    <!-- /Header -->
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <article class="maincontent text-center">
+            <h2>{{ description }}</h2>
+            <p>Below you will find official public distributions of xPDO which are stable and supported.</p>
+
+            <ul class="list-unstyled">
+                {% for release in releases %}
+                <li class="btn-group-xs"><strong>{{ release.signature }}</strong> &mdash; <a href="{{ urlFor('DownloadRelease', {"release":release.signature}) }}" class="btn btn-xs btn-success">Download</a> <small>({{ release.downloads|default('0') }})</small></li>
+                {% endfor %}
+            </ul>
+        </article>
+    </div>
+</div>	<!-- /container -->
+{% endblock %}

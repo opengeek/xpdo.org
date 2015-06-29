@@ -1,0 +1,29 @@
+{% extends 'base.twig' %}
+
+{% set title = article.title %}
+{% set subtitle = article.subtitle|default('') %}
+{% set description = article.description|default('') %}
+
+{% block header %}
+    <!-- Header -->
+    <header id="head">
+        <div class="container">
+            <div class="row">
+                <h1 class="lead">{{ article.title }}</h1>
+                <p class="tagline">{{ article.subtitle }}</p>
+            </div>
+        </div>
+    </header>
+    <!-- /Header -->
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <article class="maincontent">
+                <h2>{{ article.headline|default(article.title) }}</h2>
+                {{ article.content|raw }}
+            </article>
+        </div>
+    </div>	<!-- /container -->
+{% endblock %}

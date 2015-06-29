@@ -1,0 +1,15 @@
+{% extends 'base.twig' %}
+
+{% set title = 'Page Not Found' %}
+{% set description = 'This is not the page you were looking for' %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <article class="maincontent">
+            <h1>{{ title }}</h1>
+            <h4>{{ description }}</h4>
+        </article>
+    </div>
+</div>	<!-- /container -->
+{% endblock %}
