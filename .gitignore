@@ -3,6 +3,3 @@
 
 # ignore twig cache contents
 /views/cache/*
-
-# ignore data contents
-/data/*

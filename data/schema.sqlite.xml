@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model package="xPDO\DotOrg\Releases" baseClass="xPDO\Om\xPDOObject" platform="sqlite" version="3.0">
+    <object class="Release" table="releases" extends="xPDO\Om\xPDOSimpleObject">
+        <field key="signature" dbtype="varchar" precision="100" phptype="string" null="false" index="unique" />
+        <field key="released_on" dbtype="date" phptype="date" null="true" />
+        <field key="updated_at" dbtype="timestamp" phptype="timestamp" null="false" default="CURRENT_TIMESTAMP" />
+        <field key="version_major" dbtype="tinyint" precision="4" phptype="integer" null="false" default="0" />
+        <field key="version_minor" dbtype="tinyint" precision="4" phptype="integer" null="false" default="0" />
+        <field key="version_patch" dbtype="tinyint" precision="4" phptype="integer" null="false" default="0" />
+        <!-- value should be alpha, beta, RC or stable -->
+        <field key="stability" dbtype="varchar" precision="10" phptype="string" null="false" default="stable" />
+        <field key="stability_version" dbtype="tinyint" precision="4" phptype="integer" null="false" default="0" />
+        <field key="url" dbtype="varchar" precision="255" phptype="string" null="false" default="" />
+        <field key="downloads" dbtype="integer" precision="10" phptype="integer" null="false" default="0" />
+
+        <index alias="signature" name="signature" primary="false" unique="true" type="BTREE">
+            <column key="signature" collation="A" null="false" />
+        </index>
+        <index alias="version" name="version" primary="false" unique="true" type="BTREE">
+            <column key="version_major" collation="A" null="false" />
+            <column key="version_minor" collation="A" null="false" />
+            <column key="version_patch" collation="A" null="false" />
+            <column key="stability" collation="A" null="false" />
+            <column key="stability_version" collation="A" null="true" />
+        </index>
+        <index alias="released_on" name="released_on" primary="false" unique="false" type="BTREE">
+            <column key="released_on" collation="A" null="false" />
+        </index>
+        <index alias="downloads" name="downloads" primary="false" unique="false" type="BTREE">
+            <column key="downloads" collation="A" null="false" />
+        </index>
+
+        <validation class="xPDO\Validation\xPDOValidator">
+            <rule field="stability" name="stability_enum" type="xPDO\Validation\xPDOValidationRule" rule="xPDO\DotOrg\Validation\StabilityEnum" />
+        </validation>
+    </object>
+</model>

@@ -18,7 +18,6 @@ return [
         'stability' => 'stable',
         'stability_version' => 0,
         'url' => 'http://modx.s3.amazonaws.com/releases/xpdo/xpdo-2.4.0-pl.zip',
-        'downloads' => 0
     ],
     [
         'signature' => 'v2.3.0-pl',
@@ -29,7 +28,6 @@ return [
         'stability' => 'stable',
         'stability_version' => 0,
         'url' => 'http://modx.s3.amazonaws.com/releases/xpdo/xpdo-2.3.0-pl.zip',
-        'downloads' => 0
     ],
     [
         'signature' => 'v2.2.9-pl',
@@ -40,6 +38,5 @@ return [
         'stability' => 'stable',
         'stability_version' => 0,
         'url' => 'http://modx.s3.amazonaws.com/releases/xpdo/xpdo-2.2.9-pl.zip',
-        'downloads' => 0
     ],
 ];
