@@ -1,0 +1,43 @@
+{% extends 'base.twig' %}
+
+{% set title = 'About xPDO' %}
+{% set description = 'xPDO Explained' %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="maincontent text-center">
+                <article class="maincontent text-left">
+                    <h2>About the xPDO Project</h2>
+                    <p><strong>xPDO</strong> is our name for <em>open eXtensions to <a title="PHP Persistent Data Objects" rel="ext" href="http://php.net/pdo">PDO</a></em>. It's a light-weight <a href="/page/4722313/2014-10-11/http://xpdo.org/about/">ORB</a> (object-relational bridge) library that works on PHP 4 and 5, and takes advantage of the newly adopted standard for database persistence in PHP 5.1+, <a rel="ext" href="/page/4722313/2014-10-11/http://php.net/pdo">PDO</a>. It implements the very simple, but effective <a rel="ext" href="http://www.martinfowler.com/eaaCatalog/activeRecord.html">Active Record</a> pattern for data access.</p>
+                    <p>But <strong>OpenExpedio</strong> is a little more than a simple pattern implementation. It's a PDO implementation for
+                        PHP 4 and 5.0.x (where native PDO extensions are not available), a way to abstract business objects from the actual SQL
+                        queries and prepared statements used to access a relational database structure representing them, and a way to easily
+                        describe and provide optimized implementations of an object model for multiple target database platforms.</p>
+                    <p><strong>OpenExpedio</strong> is not a query abstraction tool, so the generated classes and maps are targeted at a specific platform to get you started. You just add your own methods and SQL to the generated classes to implement your application-specific business logic. XPDO was inspired by the need to provide an object-oriented API for a web application that is easy to develop with and maintain, and could be optimized as much as possible for the database platform it was being deployed on. And it needed to provide this with as small a code footprint as possible. For this reason, it specifically avoids the approaches of parsing and/or generating platform agnostic SQL that often doesn't take advantage of important performance-related features on each platform, or of relying on proprietary query expression languages that often generate unoptimized SQL in favor of supporting more platforms.</p>
+
+                    <a name="ORB"></a>
+                    <h3>What is an ORB?</h3>
+                    <p>
+                        I refer to xPDO as an Object Relational Bridge, or ORB for short, because I like it better than the more popular ORM acronym, which stands for Object/Relational Mapping, and the more concise OPF, or Object Persistence Framework, just doesn't sound as good as ORB does.  It has been adopted previously by several other projects including the <a rel="ext" href="http://db.apache.org/ojb/">Apache OJB project</a> for J2EE, and now <a rel="ext" href="http://modeling.sourceforge.net/">Modeling</a> for Python (inspired by NeXT Software Inc.'s Enterprise Object Framework).
+                    </p>
+
+                    <h3>Features of xPDO</h3>
+                    <ul>
+                        <li>Object-Relational Bridge (ORB) for mapping persistent objects to platform-optimized relational database structures</li>
+                        <li>Utilizes PDO, the database access layer adopted as the standard for PHP 5.1+, which provides lightning fast
+                            interaction with various relational database platforms.</li>
+                        <li>2.x provides E_DEPRECATED compliance with PHP 5.3.x as well as E_STRICT compliance for PHP 5.1.1+</li>
+                        <li>The code is ultra-light weight, and loads only what it needs on demand, so it adds virtually no overhead to your
+                            scripts. This was done by using generic methods and accessors and keeping all core code native PHP (i.e. no XML
+                            configuration parsing or other serialization involved).</li>
+                        <li>Promotes platform optimization in conjunction with object abstraction.</li>
+                        <li>Supports any database platform accessible with a PDO driver implementation. <em>(NOTE: MySQL is currently the only fully implemented PDO emulation driver when not using native PDO in xPDO 1.x)</em></li>
+                        <li>Fast generation of your classes and their metadata maps from an xPDO model definition. <em>(NOTE: a model definition is simply an XML schema defining a specific object-relational map or model)</em></li>
+                        <li>Fast generation of xPDO model definitions from an existing database.</li>
+                    </ul>
+                </article>
+            </div>
+        </div>
+    </div>	<!-- /container -->
+{% endblock %}
