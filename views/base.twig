@@ -41,6 +41,7 @@
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav pull-right">
                 <li{% if routeName == 'Home' %} class="active"{% endif %}><a href="{{ urlFor('Home') }}">Home</a></li>
+                <li{% if routeName == 'About' %} class="active"{% endif %}><a href="{{ urlFor('About') }}">About</a></li>
                 <li{% if routeName == 'Downloads' %} class="active"{% endif %}><a href="{{ urlFor('Downloads') }}">Download</a></li>
                 <li{% if routeName == 'News' %} class="active"{% endif %}><a href="{{ urlFor('News') }}">News</a></li>
                 <li><a href="https://github.com/modxcms/xpdo/">@ GitHub</a></li>
@@ -102,19 +103,14 @@
                     </div>
                 </div>
 
-                {#<div class="col-md-3 widget">#}
-                    {#<h3 class="widget-title">Follow me</h3>#}
-                    {#<div class="widget-body">#}
-                        {#<p class="follow-me-icons">#}
-                            {#<a href=""><i class="fa fa-twitter fa-2"></i></a>#}
-                            {#<a href=""><i class="fa fa-dribbble fa-2"></i></a>#}
-                            {#<a href=""><i class="fa fa-github fa-2"></i></a>#}
-                            {#<a href=""><i class="fa fa-facebook fa-2"></i></a>#}
-                        {#</p>#}
-                    {#</div>#}
-                {#</div>#}
+                <div class="col-md-3 widget">
+                    <h3 class="widget-title">Documentation</h3>
+                    <div class="widget-body">
+                        <p><a href="http://rtfm.modx.com/xpdo/2.x/">xPDO 2.x</a></p>
+                    </div>
+                </div>
 
-                <div class="col-md-9 widget">
+                <div class="col-md-6 widget">
                     <h3 class="widget-title">Try xPDO 3 using Composer</h3>
                     <div class="widget-body">
                         <p>Now it couldn't be easier to include and start using the latest development branch of xPDO in your project:</p>
@@ -134,6 +130,7 @@
                     <div class="widget-body">
                         <p class="simplenav">
                             <a href="{{ urlFor('Home') }}">Home</a> |
+                            <a href="{{ urlFor('About') }}">About</a> |
                             <a href="{{ urlFor('Downloads') }}">Download</a> |
                             <a href="{{ urlFor('News') }}">News</a> |
                             <a href="https://github.com/modxcms/xpdo/">@ GitHub</a>
