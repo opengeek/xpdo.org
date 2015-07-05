@@ -3,3 +3,6 @@
 
 # ignore twig cache contents
 /views/cache/*
+
+# ignore any xpdo properties includes
+properties.inc.php

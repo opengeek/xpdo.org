@@ -400,16 +400,16 @@
         },
         {
             "name": "react/promise",
-            "version": "v2.2.0",
+            "version": "v2.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/reactphp/promise.git",
-                "reference": "365fcee430dfa4ace1fbc75737ca60ceea7eeeef"
+                "reference": "3b6fca09c7d56321057fa8867c8dbe1abf648627"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/reactphp/promise/zipball/365fcee430dfa4ace1fbc75737ca60ceea7eeeef",
-                "reference": "365fcee430dfa4ace1fbc75737ca60ceea7eeeef",
+                "url": "https://api.github.com/repos/reactphp/promise/zipball/3b6fca09c7d56321057fa8867c8dbe1abf648627",
+                "reference": "3b6fca09c7d56321057fa8867c8dbe1abf648627",
                 "shasum": ""
             },
             "require": {
@@ -436,11 +436,11 @@
             "authors": [
                 {
                     "name": "Jan Sorgalla",
-                    "email": "jsorgalla@googlemail.com"
+                    "email": "jsorgalla@gmail.com"
                 }
             ],
             "description": "A lightweight implementation of CommonJS Promises/A for PHP",
-            "time": "2014-12-30 13:32:42"
+            "time": "2015-07-03 13:48:55"
         },
         {
             "name": "slim/slim",
@@ -755,12 +755,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/modxcms/xpdo.git",
-                "reference": "c8f5b5d6a4e5997281fe918740c3d116f3121e25"
+                "reference": "989002de4ca96184baf830ed892b7626c0442d3e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/modxcms/xpdo/zipball/c8f5b5d6a4e5997281fe918740c3d116f3121e25",
-                "reference": "c8f5b5d6a4e5997281fe918740c3d116f3121e25",
+                "url": "https://api.github.com/repos/modxcms/xpdo/zipball/989002de4ca96184baf830ed892b7626c0442d3e",
+                "reference": "989002de4ca96184baf830ed892b7626c0442d3e",
                 "shasum": ""
             },
             "require": {
@@ -801,7 +801,7 @@
             ],
             "description": "A PDO-based Object/Relational Bridge Library",
             "homepage": "http://www.xpdo.org/",
-            "time": "2015-07-03 04:36:34"
+            "time": "2015-07-03 22:42:58"
         }
     ],
     "packages-dev": [

@@ -8,28 +8,11 @@
  * file that was distributed with this source code.
  */
 
-require __DIR__ . '/../vendor/autoload.php';
+require dirname(__DIR__) . '/vendor/autoload.php';
 
 use xPDO\xPDO;
 
-$properties = [
-    'sqlite_array_options' => [
-        \xPDO\xPDO::OPT_HYDRATE_FIELDS => true,
-        \xPDO\xPDO::OPT_HYDRATE_RELATED_OBJECTS => true,
-        \xPDO\xPDO::OPT_HYDRATE_ADHOC_FIELDS => true,
-        \xPDO\xPDO::OPT_CONNECTIONS => [
-            [
-                'dsn' => 'sqlite:' . __DIR__ . '/../data/xpdo',
-                'username' => '',
-                'password' => '',
-                'options' => [
-                    \xPDO\xPDO::OPT_CONN_MUTABLE => true,
-                ],
-                'driverOptions' => [],
-            ],
-        ],
-    ]
-];
+$properties = [];
 
 array_shift($argv);
 $command = array_shift($argv);
@@ -63,47 +46,22 @@ $opt = function($find) use ($argv) {
 
 $platforms = array('mysql', 'sqlite', 'sqlsrv');
 
+$verbose = $opt('verbose') || $opt('v');
+
+$config = $opt('config') || $opt('C');
+if (empty($config) || !is_readable($config)) {
+    $config = dirname(__DIR__) . '/config.php';
+}
+$properties = require $config;
+if (!is_array($properties)) {
+    echo "fatal: no valid configuration file specified" . PHP_EOL;
+    exit(128);
+}
+if ($verbose) {
+    echo "using config from {$config}" . PHP_EOL;
+}
+
 switch ($command) {
-    case 'parse-schema':
-        $platform = $arg(1);
-        if ($platform === null || !in_array(strtolower($platform), $platforms)) {
-            echo "fatal: no valid platform specified" . PHP_EOL;
-            exit(128);
-        }
-        $platform = strtolower($platform);
-        $schema = $arg(2);
-        if ($schema === null || !is_readable($schema)) {
-            echo "fatal: no valid schema provided" . PHP_EOL;
-            exit(128);
-        }
-        $path = $arg(3);
-
-        $compile = $opt('compile') || $opt('c');
-        $update = $opt('update');
-        $regen = $opt('regen');
-
-        $update = $update === false ? 0 : (int)$update;
-        $regen = $regen === false ? 0 : (int)$regen;
-
-        $xpdo = xPDO::getInstance('generator', $properties["{$platform}_array_options"]);
-        $xpdo->setLogLevel(xPDO::LOG_LEVEL_INFO);
-        $xpdo->setLogTarget(PHP_SAPI === 'cli' ? 'ECHO' : 'HTML');
-
-        $generator = $xpdo->getManager()->getGenerator();
-        $generator->parseSchema(
-            $schema,
-            $path,
-            array(
-                'compile' => $compile,
-                'update' => $update,
-                'regenerate' => $regen,
-            )
-        );
-        exit(0);
-        break;
-    case 'write-schema':
-        echo "write-schema command not yet implemented" . PHP_EOL;
-        break;
     case 'init':
         $platform = $arg(1);
         if ($platform === null || !in_array(strtolower($platform), $platforms)) {
@@ -134,8 +92,7 @@ switch ($command) {
 
 echo <<<'EOF'
 Example usage:
-  xpdo parse-schema [[--compile|-c]|--update=[0-2]|--regen=[0-2]] PLATFORM SCHEMA_FILE PATH
-  xpdo write-schema [?] PLATFORM SCHEMA_FILE PATH
+  xpdo init [--verbose|-v] [[--config|-C]=CONFIG/FILE] PLATFORM
 
 EOF;
 exit(0);
