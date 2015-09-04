@@ -22,16 +22,19 @@ $app->get('/about/', function() use ($app) {
 
 $app->group('/news', function() use ($app) {
     $app->get('/', function() use ($app) {
+        $sort = function ($a, $b) {
+            return ($b->getMTime() - $a->getMTime());
+        };
+
         $finder = new \Symfony\Component\Finder\Finder();
         $articles = $finder->files()->in($app->view()->getTemplatesDirectory() . '/articles/*/*/')
-            ->name('*.md')
-            ->sortByModifiedTime();
+            ->name('*.md');
 
         $parser = new \Mni\FrontYAML\Parser();
 
         $yaml = [];
         /** @var \Symfony\Component\Finder\SplFileInfo $article */
-        foreach (new LimitIterator($articles->getIterator(), 0, 5) as $article) {
+        foreach (new LimitIterator((new \Symfony\Component\Finder\Iterator\SortableIterator($articles->getIterator(), $sort))->getIterator(), 0, 5) as $article) {
             $document = $parser->parse($article->getContents());
             $yaml[] = $document->getYAML();
         }
