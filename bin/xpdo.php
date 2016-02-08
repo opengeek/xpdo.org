@@ -48,7 +48,7 @@ $platforms = array('mysql', 'sqlite', 'sqlsrv');
 
 $verbose = $opt('verbose') || $opt('v');
 
-$config = $opt('config') || $opt('C');
+$config = $opt('config');
 if (empty($config) || !is_readable($config)) {
     $config = dirname(__DIR__) . '/config.php';
 }

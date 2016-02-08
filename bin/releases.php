@@ -10,6 +10,26 @@
 
 return [
     [
+        'signature' => 'v2.5.0-pl',
+        'released_on' => '2016-02-03',
+        'version_major' => 2,
+        'version_minor' => 5,
+        'version_patch' => 0,
+        'stability' => 'stable',
+        'stability_version' => 0,
+        'url' => 'http://modx.s3.amazonaws.com/releases/xpdo/xpdo-2.5.0-pl.zip',
+    ],
+    [
+        'signature' => 'v2.4.1-pl',
+        'released_on' => '2015-09-22',
+        'version_major' => 2,
+        'version_minor' => 4,
+        'version_patch' => 1,
+        'stability' => 'stable',
+        'stability_version' => 0,
+        'url' => 'http://modx.s3.amazonaws.com/releases/xpdo/xpdo-2.4.1-pl.zip',
+    ],
+    [
         'signature' => 'v2.4.0-pl',
         'released_on' => '2015-06-26',
         'version_major' => 2,
